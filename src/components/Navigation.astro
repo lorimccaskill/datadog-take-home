@@ -1,0 +1,20 @@
+---
+const siteSections = [
+    'Product',
+    'Docs',
+    'Pricing',
+    'Customers',
+    'About',
+    'Blog'
+];
+---
+
+<!-- LOGO HERE -->
+
+<nav>
+    <menu>
+        {siteSections.map((section) => <li><a href="#">{section}</a></li>)}
+    </menu>
+</nav>
+
+<a href="#">Login</a>

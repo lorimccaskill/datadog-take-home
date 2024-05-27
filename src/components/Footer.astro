@@ -1,0 +1,14 @@
+---
+const legalLinks = [
+    'Terms',
+    'Privacy',
+    'Cookies'
+]
+---
+
+<footer>
+    <a class="free-trial">Free Trial</a>
+    <p class="copywrite">&copy; Datadog 2017</p>
+
+    {legalLinks.map((link) => <a href="#">{link}</a>)}
+</footer>
