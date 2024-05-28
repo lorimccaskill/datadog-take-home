@@ -10,3 +10,8 @@
   - https://docs.astro.build/en/guides/integrations-guide/tailwind/
   - https://codedamn.com/news/frontend/how-to-fix-color-not-working-in-tailwind-css
   - https://dev.to/dailydevtips1/how-to-use-tailwind-css-in-astro-1fnd (fix! file purge & JIT compiler)
+
+  ### Implementing custom colors
+  - issue: purple override, then custom purple color not working
+  - research
+    - https://community.redwoodjs.com/t/tailwind-custom-theme-not-working/3695
