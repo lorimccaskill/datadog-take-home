@@ -8,13 +8,14 @@ const siteSections = [
     'Blog'
 ];
 ---
+<div class="w-48 p-4 bg-datadogPurple text-white text-sm">
+    <!-- LOGO HERE -->
 
-<!-- LOGO HERE -->
+    <nav class="uppercase font-bold">
+        <menu>
+            {siteSections.map((section) => <li class="py-3"><a href="#">{section}</a></li>)}
+        </menu>
+    </nav>
 
-<nav class="bg-purple-700 text-white">
-    <menu>
-        {siteSections.map((section) => <li><a href="#">{section}</a></li>)}
-    </menu>
-</nav>
-
-<a href="#">Login</a>
+    <a href="#">Login</a>
+</div>
