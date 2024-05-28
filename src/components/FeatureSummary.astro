@@ -3,8 +3,8 @@ const { imageSrc, imageAlt, featureName, featureTagline} = Astro.props
 ---
 <figure class="relative">
     <img src={imageSrc} alt={imageAlt} />
-    <figcaption class="absolute top-0 left-0 w-inherit h-full flex flex-col justify-center items-center text-white text-center">
+    <figcaption class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white text-center lg:w-auto">
        <small>{featureName}</small>
-       <p class="text-3xl px-4 py-2 box-border">{featureTagline}</p> 
+       <p class="text-2xl px-4 py-2 box-border lg:text-3xl">{featureTagline}</p> 
     </figcaption>
 </figure>
