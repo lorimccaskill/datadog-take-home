@@ -8,15 +8,17 @@ const siteSections = [
     'Blog'
 ];
 ---
-<div class="flex w-full h-24 p-4 sm:w-40 sm:h-fit sm:flex-col sm:space-y-10 sm:items-start bg-datadogPurple text-white text-sm">
+<div class="flex w-full h-24 p-4 justify-between sm:w-40 sm:h-fit sm:flex-col sm:justify-start sm:space-y-10 sm:items-start bg-datadogPurple text-white text-sm">
     <img class="object-scale-down sm:object-none" src="/images/datadog-logo-v.png" alt="Datadog logo">
 
-    <nav class="uppercase font-bold">
-        <a class="sm:hidden" href="#">Menu</a>
-        <menu class="hidden sm:block">
-            {siteSections.map((section) => <li class="py-3"><a href="#">{section}</a></li>)}
-        </menu>
-    </nav>
+    <div class="flex space-x-4 sm:flex-col sm:space-x-0 sm:space-y-10">
+        <nav class="uppercase font-bold">
+            <a class="sm:hidden" href="#">Menu</a>
+            <menu class="hidden sm:block">
+                {siteSections.map((section) => <li class="py-3"><a href="#">{section}</a></li>)}
+            </menu>
+        </nav>
 
-    <a href="#">Login</a>
+        <a href="#">Login</a>
+    </div>
 </div>
