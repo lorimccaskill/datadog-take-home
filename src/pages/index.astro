@@ -1,11 +1,34 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import FeatureSummary from "../components/FeatureSummary.astro";
 const pageTitle = "Datadog | Home";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<main>
-		<h1>Modern monitoring & analytics</h1>
-		<h2>See inside any stack, any app, at any scale, anywhere.</h2>
+		<section>
+			<h1>Modern monitoring & analytics</h1>
+			<h2>See inside any stack, any app, at any scale, anywhere.</h2>
+		</section>
+		<section>
+			<FeatureSummary 
+				imageSrc="/images/feature-apm.jpg",
+				imageAlt="Datadog APM product website screenshot with green tint",
+				featureName="APM",
+				featureTagline="Get full visibility into modern applications"  
+			/>
+			<FeatureSummary 
+				imageSrc="/images/feature-infra.jpg",
+				imageAlt="Abstract honeycomb pattern containing rectangles representing infrastructre entities with blue tint",
+				featureName="Infrastructure",
+				featureTagline="See across systems, apps, and services"  
+			/>
+			<FeatureSummary 
+				imageSrc="/images/feature-logs.jpg",
+				imageAlt="Datadog Logs Management product website screenshot with red tint",
+				featureName="Logs Management",
+				featureTagline="Analyze and explore log data in context"  
+			/>
+		</section>
 	</main>
 </BaseLayout>
