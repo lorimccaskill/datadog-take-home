@@ -2,7 +2,7 @@
 const { featureName, featureTagline } = Astro.props
 ---
 
-<div class="flex flex-col justify-center text-white text-center lg:w-auto">
+<a class="flex flex-col justify-center grow text-white text-center lg:w-auto hover:bg-white/85 hover:text-inherit" href="#">
     <label class="text-xs uppercase">{featureName}</label>
     <h3 class="text-2xl px-4 py-2 lg:text-3xl">{featureTagline}</h3>
-</div>
+</a>
