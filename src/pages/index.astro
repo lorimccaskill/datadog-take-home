@@ -8,15 +8,18 @@ const pageTitle = "Datadog | Home";
 
 <BaseLayout pageTitle={pageTitle}>
 	<main class="grow p-8 grid grid-cols-1 md:grid-cols-2 bg-white">
-		<section class="max-w-md col-span-2 lg:col-span-1">
-			<h1 class="text-4xl leading-snug font-semibold mb-2 lg:text-5xl lg:leading-tight lg:mb-4">Modern monitoring & analytics</h1>
-			<h2 class="text-2xl leading-snug lg:text-3xl lg:leading-normal">See inside any stack, any app, at any scale, anywhere.</h2>
-			<CallToAction ctaText="Try Free"/>
-		</section>
-		<section class="col-span-2 lg:col-span-1">
+		<!-- <section class="max-w-md col-span-2 lg:col-span-1"></section> -->
+		<section class="col-span-2 lg:flex">
+			<div class="max-w-md">
+				<h1 class="text-4xl leading-snug font-semibold mb-2 lg:text-5xl lg:leading-tight lg:mb-4">Modern monitoring & analytics</h1>
+				<h2 class="text-2xl leading-snug lg:text-3xl lg:leading-normal">See inside any stack, any app, at any scale, anywhere.</h2>
+				<CallToAction ctaText="Try Free"/>
+			</div>
+
 			<!-- custom text colors assigned below so that Tailwind will generate CSS that is leveraged variably in the PricingTier component -->
 			<PricingSection class="text-datadogGreen text-datadogRed"/>
 		</section>
+		<!-- <section class="col-span-2 lg:col-span-1"></section> -->
 		<FeatureSummary 
 			imageSrc="/images/feature-apm.jpg",
 			imageAlt="Datadog APM product website screenshot with green tint",
