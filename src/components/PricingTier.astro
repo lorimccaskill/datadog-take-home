@@ -1,11 +1,11 @@
 ---
-const { tierName, tierPrice, tierDescription, tierFeatures } = Astro.props;
+const { tierName, tierPrice, tierDescription } = Astro.props;
 ---
 
-<div>
-    <h3>{tierName}</h3>
-    <p>Starting at <span>{tierPrice}</span> <small>Per host, per month<sup>*</sup></small></p>
-    <p>{tierDescription}</p>
+<div class="py-10 first:pt-0 last:pb-0">
+    <label class="inline-block uppercase text-xs pb-5">{tierName}</label>
+    <p>Starting at <span class="block py-3 text-5xl font-bold">${tierPrice}</span> <small class="text-sm">Per host, per month<sup>*</sup></small></p>
+    <p class="py-5">{tierDescription}</p>
     <slot />
-    <a href="#">See Details</a>
+    <a class="block pt-10 underline" href="#">See Details</a>
 </div>

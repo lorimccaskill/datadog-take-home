@@ -20,18 +20,20 @@ const logsFeatures = [
 ];
 ---
 
-<PricingTier tierName="Infrastructure", tierPrice="$15", tierDescription="Centralize your monitoring of systems and services">
-    <ul>
-        {infraFeatures.map((feature) => <li>- {feature}</li>)}
-    </ul>
-</PricingTier>
-<PricingTier tierName="APM", tierPrice="$31", tierDescription="Centralize your monitoring of systems and services">
-    <ul>
-        {apmFeatures.map((feature) => <li>- {feature}</li>)}
-    </ul>
-</PricingTier>
-<PricingTier tierName="Logs Management", tierPrice="$1.27", tierDescription="Analyze and explore log data in context">
-    <ul>
-        {logsFeatures.map((feature) => <li>- {feature}</li>)}
-    </ul>
-</PricingTier>
+<div class="p-10 bg-neutral-100 divide-y divide-neutral-400">
+    <PricingTier tierName="Infrastructure", tierPrice="15", tierDescription="Centralize your monitoring of systems and services">
+        <ul>
+            {infraFeatures.map((feature) => <li>- {feature}</li>)}
+        </ul>
+    </PricingTier>
+    <PricingTier tierName="APM", tierPrice="31", tierDescription="Centralize your monitoring of systems and services">
+        <ul>
+            {apmFeatures.map((feature) => <li>- {feature}</li>)}
+        </ul>
+    </PricingTier>
+    <PricingTier tierName="Logs Management", tierPrice="1.27", tierDescription="Analyze and explore log data in context">
+        <ul>
+            {logsFeatures.map((feature) => <li>- {feature}</li>)}
+        </ul>
+    </PricingTier>
+</div>
