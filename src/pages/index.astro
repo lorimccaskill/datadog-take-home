@@ -14,7 +14,8 @@ const pageTitle = "Datadog | Home";
 			<CallToAction ctaText="Try Free"/>
 		</section>
 		<section class="col-span-2 lg:col-span-1">
-			<PricingSection />
+			<!-- custom text colors assigned below so that Tailwind will generate CSS that is leveraged variably in the PricingTier component -->
+			<PricingSection class="text-datadogGreen text-datadogRed"/>
 		</section>
 		<FeatureSummary 
 			imageSrc="/images/feature-apm.jpg",
