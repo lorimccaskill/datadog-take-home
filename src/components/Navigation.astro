@@ -8,17 +8,25 @@ const siteSections = [
     'Blog'
 ];
 ---
-<div class="flex w-full h-24 p-4 sm:py-8 justify-between sm:w-40 sm:h-fit sm:flex-col sm:justify-start sm:space-y-10 sm:items-start bg-datadogPurple text-white text-sm">
+<div class="flex w-full h-24 p-4 sm:py-8 justify-between sm:w-40 sm:h-fit sm:shrink-0 sm:flex-col sm:justify-start sm:space-y-10 sm:items-start bg-datadogPurple text-white text-sm">
     <img class="object-scale-down sm:object-none" src="/images/datadog-logo-v.png" alt="Datadog logo">
 
-    <div class="flex space-x-4 sm:flex-col sm:space-x-0 sm:space-y-10">
-        <nav class="uppercase font-bold">
-            <a class="sm:hidden" href="#">Menu</a>
-            <menu class="hidden sm:block">
+    <div class="flex space-x-4 items-end sm:flex-col sm:space-x-0 sm:space-y-10 sm:items-start">
+        <!-- navigation for desktop & tablet screens -->
+        <nav class="uppercase font-bold hidden sm:block">
+            <menu class="">
                 {siteSections.map((section) => <li class="py-3"><a href="#">{section}</a></li>)}
             </menu>
         </nav>
 
         <a href="#">Login</a>
+
+        <!-- navigation for mobile screens -->
+        <nav class="relative uppercase font-bold sm:hidden" x-data="{ open:false }">
+            <a href="#" @click="open =! open">Menu</a>
+            <menu class="absolute top-[20px] right-0 bg-datadogPurple" x-show="open" @click.outside="open=false">
+                {siteSections.map((section) => <li class="py-3"><a href="#">{section}</a></li>)}
+            </menu>
+        </nav>
     </div>
 </div>
