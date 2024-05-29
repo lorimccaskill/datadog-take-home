@@ -8,30 +8,24 @@ const pageTitle = "Datadog | Home";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<main class="grow p-8 grid grid-cols-1 md:grid-cols-2 bg-white">
+	<main class="grow p-8 md:grid md:grid-cols-2 bg-white">
 		<section class="col-span-2 lg:flex">
 			<HeadlineSection />
 
 			<!-- custom text colors assigned below so that Tailwind will generate CSS that is leveraged variably in the PricingTier component -->
 			<PricingSection class="text-datadogGreen text-datadogRed"/>
 		</section>
-		<FeatureSummary 
-			imageSrc="/images/feature-apm.jpg",
-			imageAlt="Datadog APM product website screenshot with green tint",
-			featureName="APM",
-			featureTagline="Get full visibility into modern applications"  
-		/>
-		<FeatureSummary 
-			imageSrc="/images/feature-infra.jpg",
-			imageAlt="Abstract honeycomb pattern containing rectangles representing infrastructre entities with blue tint",
-			featureName="Infrastructure",
-			featureTagline="See across systems, apps, and services"  
-		/>
-		<FeatureSummary 
-			imageSrc="/images/feature-logs.jpg",
-			imageAlt="Datadog Logs Management product website screenshot with red tint",
-			featureName="Logs Management",
-			featureTagline="Analyze and explore log data in context"  
-		/>
+
+		<section class="bg-[url('/images/feature-apm.jpg')] bg-cover min-h-64 flex justify-center">
+			<FeatureSummary featureName="APM", featureTagline="Get full visibility into modern applications"/>
+		</section>
+
+		<section class="bg-[url('/images/feature-infra.jpg')] bg-cover min-h-64 flex justify-center">
+			<FeatureSummary featureName="Infrastructure", featureTagline="See across systems, apps, and services"/>
+		</section>
+
+		<section class="bg-[url('/images/feature-logs.jpg')] bg-cover min-h-64 flex justify-center">
+			<FeatureSummary featureName="Logs Management", featureTagline="Analyze and explore log data in context"/>
+		</section>
 	</main>
 </BaseLayout>
