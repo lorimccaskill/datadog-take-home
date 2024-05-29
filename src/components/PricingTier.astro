@@ -1,0 +1,11 @@
+---
+const { tierName, tierPrice, tierDescription, tierFeatures } = Astro.props;
+---
+
+<div>
+    <h3>{tierName}</h3>
+    <p>Starting at <span>{tierPrice}</span> <small>Per host, per month<sup>*</sup></small></p>
+    <p>{tierDescription}</p>
+    <slot />
+    <a href="#">See Details</a>
+</div>

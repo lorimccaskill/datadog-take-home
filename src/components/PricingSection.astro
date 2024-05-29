@@ -1,0 +1,37 @@
+---
+import PricingTier from "./PricingTier.astro";
+
+const infraFeatures = [
+    "250+ integrations",
+    "Out-of-the-box dashboards",
+    "15-month metric retention"
+];
+
+const apmFeatures = [
+    "Java, Ruby, Python, Go, Node, and more",
+    "Out-of-the-box application health dashboards",
+    "1 million trace events per host included"
+];
+
+const logsFeatures = [
+    "Collect from any source",
+    "Automated & custom processing",
+    "Fully integrated with Infrastructure and APM"
+];
+---
+
+<PricingTier tierName="Infrastructure", tierPrice="$15", tierDescription="Centralize your monitoring of systems and services">
+    <ul>
+        {infraFeatures.map((feature) => <li>- {feature}</li>)}
+    </ul>
+</PricingTier>
+<PricingTier tierName="APM", tierPrice="$31", tierDescription="Centralize your monitoring of systems and services">
+    <ul>
+        {apmFeatures.map((feature) => <li>- {feature}</li>)}
+    </ul>
+</PricingTier>
+<PricingTier tierName="Logs Management", tierPrice="$1.27", tierDescription="Analyze and explore log data in context">
+    <ul>
+        {logsFeatures.map((feature) => <li>- {feature}</li>)}
+    </ul>
+</PricingTier>
