@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CallToAction from "../components/CallToAction.astro";
 import FeatureSummary from "../components/FeatureSummary.astro";
 const pageTitle = "Datadog | Home";
 ---
@@ -9,6 +10,7 @@ const pageTitle = "Datadog | Home";
 		<section>
 			<h1 class="text-4xl bold lg:text-5xl">Modern monitoring & analytics</h1>
 			<h2 class="text-2xl lg:text-3xl">See inside any stack, any app, at any scale, anywhere.</h2>
+			<CallToAction ctaText="Try Free"/>
 		</section>
 		<section>
 			<FeatureSummary 
