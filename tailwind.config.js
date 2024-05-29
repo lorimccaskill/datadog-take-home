@@ -13,6 +13,7 @@ module.exports = {
         'datadogPurple' : '#724EEF',
         'datadogGreen': '#14D071',
         'datadogRed' : '#FF635A',
+        'lightPurple' : '#bdc3ff',
       },
       fontFamily: {
         'sans': ['Natural', 'sans-serif'],
