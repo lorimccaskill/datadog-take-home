@@ -3,34 +3,24 @@ import Alpine from "alpinejs";
 ---
 
 <section>
-    <div id="customer-testimony">
-        <h1 id="customer-company"></h1>
-        <p id="customer-quote"></p>
-        <p id="customer-name"></p>
-        <p id="customer-title"></p>
-        <a class="text-datadogPurple" href="#">See More Stories</a>
-    </div>
-
     <ul x-data="customers">
+        <li>
+            <div id="customer-testimony">
+                <h1 id="customer-company">AdRoll</h1>
+                <p id="customer-quote">Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.</p>
+                <p id="customer-name">Valentino Volonghi</p>
+                <p id="customer-title">Chief Technology Officer</p>
+                <a class="text-datadogPurple" href="#">See More Stories</a>
+            </div>
+        </li>
         <li @click="updateTestimony">Acme</li>
         <li @click="updateTestimony">AdRoll</li>
+        <li @click="updateTestimony">Airbnb</li>
+        <li @click="updateTestimony">Peloton</li>
     </ul>
 </section>
 
 <script>
-    const testimonials = {
-        'Acme': {
-            'quote' : 'A rave review',
-            'name' : 'Firstname Lastname',
-            'title' : 'CEO'
-        }, 
-        "AdRoll": {
-            "quote" : "Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.",
-            "name" : "Valentino Volonghi",
-            "title" : "Chief Technology Officer"
-        }
-    };
-
     document.addEventListener('alpine:init', () => {
         Alpine.data('customers', () => ({ 
             updateTestimony() {
@@ -48,4 +38,27 @@ import Alpine from "alpinejs";
             }
         }))
     })
+
+    const testimonials = {
+        "Acme": {
+            "quote" : "A rave review",
+            "name" : "Firstname Lastname",
+            "title" : "CEO"
+        }, 
+        "AdRoll": {
+            "quote" : "Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.",
+            "name" : "Valentino Volonghi",
+            "title" : "Chief Technology Officer"
+        },
+        "Airbnb": {
+            "quote" : "We use Datadog and a lot of whatever-as-a-service, in large part because their offerings continue to get better, even when we're not looking",
+            "name" : "Ben",
+            "title" : "Site Reliabilty Engineer"
+        },
+        "Peloton": {
+            "quote" : "We have a very data-driven platform, so a lot of what we're doing is searching through a library of content for our users. Just looking through the code, it's not always obvious how that's going to work.",
+            "name" : "Chris Mohr",
+            "title" : "Software Engineer"
+        }
+    };
 </script>
