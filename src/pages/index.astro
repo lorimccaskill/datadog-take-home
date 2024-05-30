@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeadlineSection from "../components/HeadlineSection.astro";
 import PricingSection from "../components/PricingSection.astro";
 import FeatureSummary from "../components/FeatureSummary.astro";
+import CustomerSection from "../components/CustomerSection.astro";
 
 const pageTitle = "Datadog | Home";
 ---
@@ -27,5 +28,11 @@ const pageTitle = "Datadog | Home";
 		<section class="bg-[url('/images/feature-logs.jpg')] bg-cover min-h-64 flex justify-center hover:text-datadogRed">
 			<FeatureSummary featureName="Logs Management", featureTagline="Analyze and explore log data in context"/>
 		</section>
+
+		<section>
+			Placeholder for carousel
+		</section>
+
+		<CustomerSection />
 	</main>
 </BaseLayout>

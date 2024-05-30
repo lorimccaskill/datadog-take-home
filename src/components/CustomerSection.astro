@@ -1,0 +1,51 @@
+---
+import Alpine from "alpinejs";
+---
+
+<section>
+    <div id="customer-testimony">
+        <h1 id="customer-company"></h1>
+        <p id="customer-quote"></p>
+        <p id="customer-name"></p>
+        <p id="customer-title"></p>
+        <a class="text-datadogPurple" href="#">See More Stories</a>
+    </div>
+
+    <ul x-data="customers">
+        <li @click="updateTestimony">Acme</li>
+        <li @click="updateTestimony">AdRoll</li>
+    </ul>
+</section>
+
+<script>
+    const testimonials = {
+        'Acme': {
+            'quote' : 'A rave review',
+            'name' : 'Firstname Lastname',
+            'title' : 'CEO'
+        }, 
+        "AdRoll": {
+            "quote" : "Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.",
+            "name" : "Valentino Volonghi",
+            "title" : "Chief Technology Officer"
+        }
+    };
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('customers', () => ({ 
+            updateTestimony() {
+                // TODO: try using an attribute instead of innerHTML to set this variable
+                const chosenCompany = this.$el.innerHTML
+
+                // use chosenCompany to select corresponding data in testimonials object and update the DOM (all elements are within "customer-testimony" div)
+                document.getElementById('customer-company').innerHTML = chosenCompany;
+                document.getElementById('customer-quote').innerHTML = testimonials[chosenCompany].quote;
+                document.getElementById('customer-name').innerHTML = testimonials[chosenCompany].name;
+                document.getElementById('customer-title').innerHTML = testimonials[chosenCompany].title;
+
+                // used for testing
+                console.log('chosenCompany = ', chosenCompany);
+            }
+        }))
+    })
+</script>
