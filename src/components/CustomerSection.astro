@@ -3,8 +3,8 @@ import Alpine from "alpinejs";
 ---
 
 <section>
-    <ul x-data="customers">
-        <li>
+    <ul x-data="customers" class="grid grid-cols-3">
+        <li class="block col-start-2 col-span-2 row-span-2 bg-gray-300">
             <div id="customer-testimony">
                 <h1 id="customer-company">AdRoll</h1>
                 <p id="customer-quote">Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.</p>
@@ -13,10 +13,10 @@ import Alpine from "alpinejs";
                 <a class="text-datadogPurple" href="#">See More Stories</a>
             </div>
         </li>
-        <li @click="updateTestimony">Acme</li>
-        <li @click="updateTestimony">AdRoll</li>
-        <li @click="updateTestimony">Airbnb</li>
-        <li @click="updateTestimony">Peloton</li>
+        <li @click="updateTestimony" class="block bg-datadogGreen col-start-1 row-start-1">Acme</li>
+        <li @click="updateTestimony" class="block bg-datadogRed">AdRoll</li>
+        <li @click="updateTestimony" class="block bg-datadogPurple">Airbnb</li>
+        <li @click="updateTestimony" class="block bg-datadogGreen">Peloton</li>
     </ul>
 </section>
 
