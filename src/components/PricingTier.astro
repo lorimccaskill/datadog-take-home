@@ -3,7 +3,7 @@ const { tierName, tierPrice, tierDescription, tierColor } = Astro.props;
 
 // implementing variable text color passed via props along with standard Tailwind classes
 const labelStyles = 'inline-block uppercase text-xs pb-3 xl:pb-5 sm:text-[11px] text-' + tierColor;
-const linkStyles = 'block pt-10 underline text-' + tierColor;
+const linkStyles = 'block mt-auto pt-10 underline hover:font-bold text-' + tierColor;
 ---
 
 <div class="py-10 first:pt-0 last:pb-0 text-sm xl:text-base sm:flex sm:flex-col sm:py-0 sm:px-10 sm:first:pl-0 sm:last:pr-0">
