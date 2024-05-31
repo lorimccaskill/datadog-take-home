@@ -10,12 +10,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Datadog brand colors
         'datadogPurple' : '#724EEF',
         'datadogGreen': '#14D071',
         'datadogRed' : '#FF635A',
         'datadogGray' : '#443E48',
         'datadogGrayDark' : '#110617',
-        'datadogStone' : '#868686'
+        'datadogStone' : '#868686',
+         // custom color used for navigation menu highlight
+        'lightPurple' : '#bdc3ff',
       },
       fontFamily: {
         'sans': ['Natural', 'sans-serif'],
