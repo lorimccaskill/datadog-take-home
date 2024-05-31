@@ -1,0 +1,7 @@
+---
+const { name, logoUrl, color } = Astro.props;
+
+const listStyles = "block bg-[" + color + "] bg-[url('" + logoUrl + "')] bg-no-repeat bg-center bg-auto text-[0px] min-h-40 inline";
+---
+
+<li @click="updateTestimony" class={listStyles} id={name}>{name}</li>

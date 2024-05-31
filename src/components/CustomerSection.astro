@@ -1,14 +1,69 @@
 ---
+import Customer from "./Customer.astro";
+
 import Alpine from "alpinejs";
+
+const customers = [
+    {
+        'name' : 'Airbnb',
+        'logo' : '/images/logo-Airbnb.png',
+        'color' : '#FF5A5F',
+        'tailwindCSS' : 'bg-[#FF5A5F]'
+    },
+    {
+        'name' : 'Peloton',
+        'logo' : '/images/logo-Peloton.png',
+        'color' : '#000',
+        'tailwindCSS' : 'bg-[#000]'
+    },
+    {
+        'name' : 'Evernote',
+        'logo' : '/images/logo-Evernote.png',
+        'color' : '#292929',
+        'tailwindCSS' : 'bg-[#292929]'
+    },
+    {
+        'name' : 'Samsung',
+        'logo' : '/images/logo-Samsung.png',
+        'color' : '#1428A0',
+        'tailwindCSS' : 'bg-[#1428A0]'
+    },
+    {
+        'name' : 'Nginx',
+        'logo' : '/images/logo-Nginx.png',
+        'color' : '#00AA4E',
+        'tailwindCSS' : 'bg-[#00AA4E]'
+    },
+    {
+        'name' : 'PagerDuty',
+        'logo' : '/images/logo-PagerDuty.png',
+        'color' : '#5DBD5F',
+        'tailwindCSS' : 'bg-[#5DBD5F]'
+    },
+    {
+        'name' : 'WholeFoods',
+        'logo' : '/images/logo-WholeFoods.png',
+        'color' : '#000',
+        'tailwindCSS' : 'bg-[#000]'
+    },
+    {
+        'name' : 'ATT',
+        'logo' : '/images/logo-ATT.png',
+        'color' : '#00A8E0',
+        'tailwindCSS' : 'bg-[#00A8E0]'
+    }
+];
 ---
 
 <section>
     <ul x-data="customers" class="grid grid-cols-3">
-        <li @click="updateTestimony" class="block bg-datadogGreen" id="Acme">Acme</li>
-        <li @click="updateTestimony" class="block bg-datadogRed chosenCompany hidden" id="AdRoll">AdRoll</li>
-        <li @click="updateTestimony" class="block bg-datadogPurple" id="Airbnb">Airbnb</li>
-        <li @click="updateTestimony" class="block bg-datadogGreen" id="Peloton">Peloton</li>
-        <!-- 
+        {customers.map((company) => 
+            <Customer name={company.name} logoUrl={company.logo} color={company.color} class={company.tailwindCSS}>
+            </Customer>
+        )}
+        <li @click="updateTestimony" class="hidden bg-datadogRed chosenCompany" id="AdRoll">AdRoll</li>
+
+        <!--
             Testimonal Highlight
             - content changes based on user clicks in above company list
             - placement as the last item in the list is intentional for layout purposes
@@ -20,7 +75,7 @@ import Alpine from "alpinejs";
                 <p id="customer-quote">Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.</p>
                 <p id="customer-name">Valentino Volonghi</p>
                 <p id="customer-title">Chief Technology Officer</p>
-                <a class="text-datadogPurple" href="#">See More Stories</a>
+                <a class="text-datadogPurple hover:underline" href="#">See More Stories</a>
             </div>
         </li>
     </ul>
@@ -82,6 +137,36 @@ import Alpine from "alpinejs";
             "quote" : "We have a very data-driven platform, so a lot of what we're doing is searching through a library of content for our users. Just looking through the code, it's not always obvious how that's going to work.",
             "name" : "Chris Mohr",
             "title" : "Software Engineer"
+        },
+        "Evernote": {
+            "quote" : "a rave review from Evernote",
+            "name" : " ",
+            "title" : " "
+        },
+        "Samsung": {
+            "quote" : "a rave review from Samsung",
+            "name" : " ",
+            "title" : " "
+        },
+        "Nginx": {
+            "quote" : "a rave review from Nginx",
+            "name" : " ",
+            "title" : " "
+        },
+        "PagerDuty": {
+            "quote" : "a rave review from PagerDuty",
+            "name" : " ",
+            "title" : " "
+        },
+        "WholeFoods": {
+            "quote" : "a rave review from WholeFoods",
+            "name" : " ",
+            "title" : " "
+        },
+        "ATT": {
+            "quote" : "a rave review from ATT",
+            "name" : " ",
+            "title" : " "
         }
     };
 </script>
