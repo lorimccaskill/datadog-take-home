@@ -59,6 +59,7 @@ const customers = [
     <ul x-data="customers" class="grid grid-cols-3">
         {customers.map((company) => 
             <Customer name={company.name} logoUrl={company.logo} color={company.color} class={company.tailwindCSS}>
+                <img src={company.logo} alt={company.name + " logo"} />
             </Customer>
         )}
         <li @click="updateTestimony" class="hidden bg-datadogRed chosenCompany" id="AdRoll">AdRoll</li>

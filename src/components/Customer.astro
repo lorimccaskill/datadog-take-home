@@ -1,7 +1,15 @@
 ---
 const { name, logoUrl, color } = Astro.props;
 
-const listStyles = "block bg-[" + color + "] bg-[url('" + logoUrl + "')] bg-no-repeat bg-center bg-auto text-[0px] min-h-40 inline";
+const listStyles = "block bg-[" + color + "] text-[0px] flex items-center min-h-40 p-4";
 ---
 
-<li @click="updateTestimony" class={listStyles} id={name}>{name}</li>
+<li @click="updateTestimony" class={listStyles} id={name}>
+    {name}
+    <!-- double wrapping <div> elements needed to center logo via flexbox and keep image size constrained -->
+    <div class="flex justify-center w-full">
+        <div>
+            <slot />
+        </div>
+    </div>
+</li>
