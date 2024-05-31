@@ -4,7 +4,17 @@ import Alpine from "alpinejs";
 
 <section>
     <ul x-data="customers" class="grid grid-cols-3">
-        <li class="block col-start-2 col-span-2 row-span-2 bg-gray-300">
+        <li @click="updateTestimony" class="block bg-datadogGreen" id="Acme">Acme</li>
+        <li @click="updateTestimony" class="block bg-datadogRed chosenCompany hidden" id="AdRoll">AdRoll</li>
+        <li @click="updateTestimony" class="block bg-datadogPurple" id="Airbnb">Airbnb</li>
+        <li @click="updateTestimony" class="block bg-datadogGreen" id="Peloton">Peloton</li>
+        <!-- 
+            Testimonal Highlight
+            - content changes based on user clicks in above company list
+            - placement as the last item in the list is intentional for layout purposes
+            - TODO: is there a more elegant way (i.e. init function) to set the default content on page load? (current limitation is that updateTestimony logic relies on a Alpine-specific magic property that's only available after the DOM renders)
+        -->
+        <li class="block row-start-1 col-start-2 col-span-2 row-span-2 bg-gray-300">
             <div id="customer-testimony">
                 <h1 id="customer-company">AdRoll</h1>
                 <p id="customer-quote">Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.</p>
@@ -13,10 +23,6 @@ import Alpine from "alpinejs";
                 <a class="text-datadogPurple" href="#">See More Stories</a>
             </div>
         </li>
-        <li @click="updateTestimony" class="block bg-datadogGreen col-start-1 row-start-1">Acme</li>
-        <li @click="updateTestimony" class="block bg-datadogRed">AdRoll</li>
-        <li @click="updateTestimony" class="block bg-datadogPurple">Airbnb</li>
-        <li @click="updateTestimony" class="block bg-datadogGreen">Peloton</li>
     </ul>
 </section>
 
@@ -24,17 +30,34 @@ import Alpine from "alpinejs";
     document.addEventListener('alpine:init', () => {
         Alpine.data('customers', () => ({ 
             updateTestimony() {
-                // TODO: try using an attribute instead of innerHTML to set this variable
-                const chosenCompany = this.$el.innerHTML
+                // identify chosenCompany via clicked element's ID
+                const chosenCompany = this.$el.id;
 
-                // use chosenCompany to select corresponding data in testimonials object and update the DOM (all elements are within "customer-testimony" div)
+                // show any previously hidden companies
+                const hiddenCompanies = document.getElementsByClassName('chosenCompany');
+
+                /* 
+                    for the majority of cases hiddenCompany will be a collection of one object
+                    however, the event of a race condition in which both the previous chosenCompany and current chosenCompany are retrieved, below logic  will ensure the current chosenCompany remains hidden
+                */
+                for (let i = 0; i < hiddenCompanies.length; i++) {
+                    console.log('company is = ', hiddenCompanies[i].id, 'chosenCompany is = ', chosenCompany);
+
+                    // confirm element is not current chosenCompany
+                    if (hiddenCompanies[i].id !== chosenCompany) {
+                        // show element
+                        hiddenCompanies[i].classList.remove('chosenCompany', 'hidden');
+                    }
+                }
+
+                // use chosenCompany to retrieve corresponding data in testimonials object and update the DOM (all elements are within the Testimonal Highlight)
                 document.getElementById('customer-company').innerHTML = chosenCompany;
                 document.getElementById('customer-quote').innerHTML = testimonials[chosenCompany].quote;
                 document.getElementById('customer-name').innerHTML = testimonials[chosenCompany].name;
                 document.getElementById('customer-title').innerHTML = testimonials[chosenCompany].title;
 
-                // used for testing
-                console.log('chosenCompany = ', chosenCompany);
+                // hide chosenCompany element; custom class chosenCompany is needed for show any previously hidden companies logic
+                this.$el.classList.add('chosenCompany', 'hidden');
             }
         }))
     })
