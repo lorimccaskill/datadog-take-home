@@ -63,6 +63,7 @@ const customers = [
 
 <section>
     <ul x-data="customers" class="grid grid-cols-3" id="customers-list">
+        <!-- Customer List -->
         {customers.map((company) => 
             <Customer name={company.name} logoUrl={company.logo} color={company.color} class={company.tailwindCSS}>
                 <img src={company.logo} alt={company.name + " logo"} />
@@ -70,17 +71,17 @@ const customers = [
         )}
 
         <!--
-            Testimonal Highlight
+            Testimonial Highlight
             - content changes based on user clicks in above company list
             - placement as the last item in the list is intentional for layout purposes
-            - TODO: is there a more elegant way (i.e. init function) to set the default content on page load? (current limitation is that updateTestimony logic relies on a Alpine-specific magic property that's only available after the DOM renders)
+            - TODO: is there a more elegant way (i.e. init function) to set the default content on page load? (current limitation is that handleCustomerClick logic relies on a Alpine-specific magic property that's only available after the DOM renders)
         -->
         <li class="block row-start-1 col-start-2 col-span-2 row-span-2 bg-gray-300">
             <div id="customer-testimony">
-                <h1 id="customer-company">AdRoll</h1>
-                <p id="customer-quote">Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.</p>
-                <p id="customer-name">Valentino Volonghi</p>
-                <p id="customer-title">Chief Technology Officer</p>
+                <h1 id="customer-testimony-company">AdRoll</h1>
+                <p id="customer-testimony-quote">Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.</p>
+                <p id="customer-testimony-name">Valentino Volonghi</p>
+                <p id="customer-testimony-title">Chief Technology Officer</p>
                 <a class="text-datadogPurple hover:underline" href="#">See More Stories</a>
             </div>
         </li>
@@ -90,49 +91,44 @@ const customers = [
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('customers', () => ({ 
-            updateTestimony() {
-                // identify chosenCompany via clicked element's ID
-                const chosenElement = this.$el;
+            handleCustomerClick() {
+                /*
+                    set up constants used to swap data in two places:
+                    - Testimonial Highlight (callout quote from customer)
+                    - Customer List (selectable customer logo)
+
+                    at the start, Testimonial Highlight displays the company we'll refer to as the swap
+                    and the selected element in the Customer List is the company we'll refer to as chosen
+                */
+                
+                const chosenElement = this.$el; // identify chosenCompany via clicked element's ID
                 const chosenCompany = chosenElement.id;
+                const swapCompany = document.getElementById('customer-testimony-company').innerText;
+                const swapElement = document.getElementById(swapCompany);
 
-                // identify testimonialCompany via current testimonal shown
-                let testimonialCompany = document.getElementById('customer-company').innerText;
-                console.log('testimonialCompany = ', testimonialCompany);
+                /* 
+                    update the Testimonials Highlight with chosen company testimony
+                    chosen company data pulled from testimonials object data
+                */
+                document.getElementById('customer-testimony-company').innerText = chosenCompany;
+                document.getElementById('customer-testimony-quote').innerText = testimonials[chosenCompany].quote;
+                document.getElementById('customer-testimony-name').innerText = testimonials[chosenCompany].name;
+                document.getElementById('customer-testimony-title').innerText = testimonials[chosenCompany].title;
 
-                // store testimonialCompany customer list element
-                const swapElement = document.getElementById(testimonialCompany);
+                /* 
+                    update the Customer List with the swap company
+                    while also retaining the chosen company in the Customer List (will be inserted as the first <li> and CSS will hide the element)
+                */
 
-                console.log('chosenCompany = ', chosenCompany, ' testimonialCompany = ', testimonialCompany);
-
-                // use chosenCompany to retrieve corresponding data in testimonials object and update the DOM (all elements are within the Testimonal Highlight)
-                document.getElementById('customer-company').innerHTML = chosenCompany;
-                document.getElementById('customer-quote').innerHTML = testimonials[chosenCompany].quote;
-                document.getElementById('customer-name').innerHTML = testimonials[chosenCompany].name;
-                document.getElementById('customer-title').innerHTML = testimonials[chosenCompany].title;
-
-                console.log('chosenElement = ', chosenElement, ' swapElement = ', swapElement);
-
-                // in the customers list, swap in "old" company (i.e. testmiony was show) for "new" company (i.e. selected company)
-
-                // add a copy of the chosenElement to the DOM (will be needed for future swaps; CSS will hide elemet if it's the first <li> in the group)
                 const chosenCopy = chosenElement.cloneNode(true);
-                document.getElementById('customers-list').prepend(chosenCopy);
+                document.getElementById('customers-list').prepend(chosenCopy); // add chosen company as first item (hidden) in Customer List
 
-                // replace original chosenElement with testimonalCompany customer list element
-                chosenElement.replaceWith(swapElement);
-
-                // update testimonalCompany var
-                testimonialCompany = chosenCompany;
+                chosenElement.replaceWith(swapElement); // swap company placed where user clicked
             }
         }))
     })
 
-    const testimonials = {
-        "Acme": {
-            "quote" : "A rave review",
-            "name" : "Firstname Lastname",
-            "title" : "CEO"
-        }, 
+    const testimonials = { 
         "AdRoll": {
             "quote" : "Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.",
             "name" : "Valentino Volonghi",
