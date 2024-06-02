@@ -1,8 +1,7 @@
 <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
 <script type="text/javascript" src="node_modules/@glidejs/glide/dist/glide.js" ></script>
 
-<!-- TODO: improve strategy to contain width of carousel. Without "w-40" (or similar fixed size) entire page's styles affected by the carousel's massive growth -->
-<div class="w-40">
+<div class="block p-6 sm:p-10 bg-neutral-100">
 
     <div id="my-carousel" class="glide">
         <div class="glide__track" data-glide-el="track">
@@ -20,6 +19,7 @@
     </div>
 
 </div>
+
 
 <script>
     var myCarousel = new Glide('#my-carousel', {
