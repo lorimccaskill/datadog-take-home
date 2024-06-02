@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+<script type="text/javascript" src="node_modules/@glidejs/glide/dist/glide.js" ></script>
+
+<!-- TODO: improve strategy to contain width of carousel. Without "w-40" (or similar fixed size) entire page's styles affected by the carousel's massive growth -->
+<div class="w-40">
+
+    <div id="my-carousel" class="glide">
+        <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+                <li class="glide__slide">Slide Zero</li>
+                <li class="glide__slide">Slide One</li>
+                <li class="glide__slide">Slide Two</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+    </div>
+
+</div>
+
+<script>
+    var myCarousel = new Glide('#my-carousel', {
+        type: 'slider',
+        rewind: false,
+        startAt: 0,
+        perView: 1
+    }).mount();
+
+    document.querySelector(".glide__arrow--right").addEventListener("click", () => {
+        myCarousel.go(">");
+    });
+
+    document.querySelector(".glide__arrow--left").addEventListener("click", () => {
+        myCarousel.go("<");
+    });
+
+</script>
