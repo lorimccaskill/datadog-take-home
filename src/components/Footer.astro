@@ -7,15 +7,15 @@ const legalLinks = [
 
 const menuItemsProduct = [
     'Features',
-    'Documentation',
     'APM',
-    'Support',
     'Integrations',
-    'Resources',
     'Alerts',
-    'Security',
     'API',
-    'Pricing'
+    'Pricing',
+    'Documentation',
+    'Support',
+    'Resources',
+    'Security'
 ];
 
 const menuItemsAbout = [
@@ -40,15 +40,14 @@ const menuItemsSocial = [
     <div class="md:ml-40 md:mr-10">
         <section class="flex justify-between">
             <div class="flex flex-col justify-between">
-                <a class="free-trial">Free Trial</a>
+                <a class="p-2 sm:py-4 sm:px-6 border-2 border-datadogStone rounded font-semibold uppercase text-white lg:px-8 hover:bg-datadogStone" href="#">Free Trial</a>
                 <p class="copywrite">&copy; Datadog 2017</p>
             </div>
             <menu class="flex gap-8 w-2/3">
                 <!-- TODO: make compoent for menu groups below; Need to solve for the uniqueness of Product group (grid classes applied to <ul> achieve desired layout) -->
                 <li class="grow">
                     <strong>Product</strong>
-                    <!-- TODO: is there another layout approach that uses a 2-column layout in which content overflows from the left col to the right col? -->
-                    <ul class="grid grid-cols-2 border-t-2 border-datadogStone mt-2 pt-2">
+                    <ul class="lg:grid lg:grid-rows-6 lg:grid-cols-2 lg:grid-flow-col border-t-2 border-datadogStone mt-2 pt-2">
                         {menuItemsProduct.map((item) => <li><a class="hover:underline" href="#">{item}</a></li>)}
                     </ul>
                 </li>
@@ -67,8 +66,8 @@ const menuItemsSocial = [
             </menu>
         </section>
 
-        <section class="flex justify-center divide-x-2 mt-20 text-center text-white">
-            {legalLinks.map((link) => <a class="inline-block px-3 hover:underline" href="#">{link}</a>)}
+        <section class="flex justify-center mt-20 text-center text-white">
+            {legalLinks.map((link) => <a class="inline-block px-3 hover:underline" href="#">{link}</a><span class="last:hidden"> | </span>)}
         </section>
     </div>
 </footer>
