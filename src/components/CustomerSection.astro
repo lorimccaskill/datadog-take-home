@@ -75,16 +75,18 @@ const customers = [
             - placement as the last item in the list is intentional for layout purposes
             - TODO: is there a more elegant way (i.e. init function) to set the default content on page load? (current limitation is that handleCustomerClick logic relies on a Alpine-specific magic property that's only available after the DOM renders)
         -->
-        <li class="block row-start-1 col-start-2 col-span-2 row-span-2 bg-gray-300">
+        <li class="flex items-end row-start-1 col-start-2 col-span-2 row-span-2 bg-neutral-100 p-6 text-sm">
             <div id="customer-testimony">
-                <h1 id="customer-testimony-company">AdRoll</h1>
+                <h1 id="customer-testimony-company" class="text-[0px]">AdRoll</h1> <!-- present for accessibility; hidden via CSS -->
                 <div id="customer-testimony-logo" class="max-w-[150px]" >
                     <img src={customers[0].logo} alt={customers[0].name + " logo"} />
                 </div>
-                <p id="customer-testimony-quote">Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.</p>
-                <p id="customer-testimony-name">Valentino Volonghi</p>
-                <p id="customer-testimony-title">Chief Technology Officer</p>
-                <a class="text-datadogPurple hover:underline" href="#">See More Stories</a>
+                <p class="mt-10">
+                    &ldquo;<span id="customer-testimony-quote">Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.</span>&rdquo;
+                </p>
+                <p id="customer-testimony-name" class="mt-2 text-xs font-bold">Valentino Volonghi</p>
+                <p id="customer-testimony-title" class="text-xs uppercase">Chief Technology Officer</p>
+                <a class="inline-block mt-4 text-datadogPurple text-base hover:underline" href="#">See More Stories</a>
             </div>
         </li>
     </ul>
@@ -153,33 +155,33 @@ const customers = [
         },
         "Evernote": {
             "quote" : "a rave review from Evernote",
-            "name" : " ",
-            "title" : " "
+            "name" : "Firstname Lastname",
+            "title" : "Title"
         },
         "Samsung": {
             "quote" : "a rave review from Samsung",
-            "name" : " ",
-            "title" : " "
+            "name" : "Firstname Lastname",
+            "title" : "Title"
         },
         "Nginx": {
             "quote" : "a rave review from Nginx",
-            "name" : " ",
-            "title" : " "
+            "name" : "Firstname Lastname",
+            "title" : "Title"
         },
         "PagerDuty": {
             "quote" : "a rave review from PagerDuty",
-            "name" : " ",
-            "title" : " "
+            "name" : "Firstname Lastname",
+            "title" : "Title"
         },
         "WholeFoods": {
             "quote" : "a rave review from WholeFoods",
-            "name" : " ",
-            "title" : " "
+            "name" : "Firstname Lastname",
+            "title" : "Title"
         },
         "ATT": {
             "quote" : "a rave review from ATT",
-            "name" : " ",
-            "title" : " "
+            "name" : "Firstname Lastname",
+            "title" : "Title"
         }
     };
 </script>
