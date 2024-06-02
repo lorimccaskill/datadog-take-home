@@ -5,9 +5,9 @@ import Alpine from "alpinejs";
 const customers = [
     {
         'name' : 'AdRoll',
-        'logo' : ' ',
-        'color' : '#00A8E0',
-        'tailwindCSS' : 'bg-[#00A8E0]'
+        'logo' : '/images/logo-AdRoll.png',
+        'color' : '#F5F5F5',
+        'tailwindCSS' : 'bg-[#F5F5F5]'
     },
     {
         'name' : 'Airbnb',
@@ -78,6 +78,9 @@ const customers = [
         <li class="block row-start-1 col-start-2 col-span-2 row-span-2 bg-gray-300">
             <div id="customer-testimony">
                 <h1 id="customer-testimony-company">AdRoll</h1>
+                <div id="customer-testimony-logo" class="max-w-[150px]" >
+                    <img src={customers[0].logo} alt={customers[0].name + " logo"} />
+                </div>
                 <p id="customer-testimony-quote">Datadog has been instrumental in managing our real-time infrastructure, globally distributed in 5 data centers across hundreds of instances, and thousands of different metrics and dimensions for each host. I can't believe there was a time when we didn't have Datadog.</p>
                 <p id="customer-testimony-name">Valentino Volonghi</p>
                 <p id="customer-testimony-title">Chief Technology Officer</p>
@@ -102,21 +105,26 @@ const customers = [
                 
                 const chosenElement = this.$el; // identify chosenCompany via clicked element's ID
                 const chosenCompany = chosenElement.id;
+                const chosenCompanyLogo = chosenElement.getElementsByTagName('img')[0].cloneNode(true); // get a copy of <img> so the logo isn't lost in the Customer List
                 const swapCompany = document.getElementById('customer-testimony-company').innerText;
                 const swapElement = document.getElementById(swapCompany);
 
+                console.log('chosenCompanyLogo = ', chosenCompanyLogo);
+
                 /* 
                     update the Testimonials Highlight with chosen company testimony
-                    chosen company data pulled from testimonials object data
+                    chosen company text data pulled from testimonials object data
+                    chosen company logo <img> element pulled via copy of <img> node in chosenElement
                 */
                 document.getElementById('customer-testimony-company').innerText = chosenCompany;
+                document.getElementById('customer-testimony-logo').replaceChildren(chosenCompanyLogo);
                 document.getElementById('customer-testimony-quote').innerText = testimonials[chosenCompany].quote;
                 document.getElementById('customer-testimony-name').innerText = testimonials[chosenCompany].name;
                 document.getElementById('customer-testimony-title').innerText = testimonials[chosenCompany].title;
 
                 /* 
                     update the Customer List with the swap company
-                    while also retaining the chosen company in the Customer List (will be inserted as the first <li> and CSS will hide the element)
+                    while also retaining the chosen company (via a copy, i.e. cloneNode) in the Customer List (will be inserted as the first <li> and CSS will hide the element)
                 */
 
                 const chosenCopy = chosenElement.cloneNode(true);
