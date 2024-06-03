@@ -1,3 +1,5 @@
+# Customer section
+
 When building out the Customers component (shown below), I had the idea to make the company logos clickable and swap in a related testimonial, in part because I noticed the AdRoll tesmtimonial didn't have a corresponding logo square.
 
 ![screenshot of grid of customer logo square with larger testimonal square](/documentation/screenshots/customers-component.png)

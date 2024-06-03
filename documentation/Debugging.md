@@ -1,5 +1,5 @@
-## Debugging notes
-### Using Tailwind CSS within an Astro project
+# Debugging notes
+## Using Tailwind CSS within an Astro project
 
 When adding Tailwind CSS to my Astro project I encountered a couple of hurdles.
 
@@ -52,7 +52,7 @@ module.exports = {
 };
 ```
 
-### Implementing custom colors
+## Implementing custom colors
 - issue: purple override, then custom purple color (`datadogPurple`) not working
 - research
   - https://community.redwoodjs.com/t/tailwind-custom-theme-not-working/3695
