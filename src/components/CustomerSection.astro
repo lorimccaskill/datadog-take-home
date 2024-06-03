@@ -1,6 +1,5 @@
 ---
 import Customer from "./Customer.astro";
-import Alpine from "alpinejs";
 
 const customers = [
     {
@@ -93,6 +92,8 @@ const customers = [
 </section>
 
 <script>
+import Alpine from "alpinejs";
+
     document.addEventListener('alpine:init', () => {
         Alpine.data('customers', () => ({ 
             handleCustomerClick() {
