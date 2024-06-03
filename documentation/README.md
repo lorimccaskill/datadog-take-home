@@ -1,4 +1,4 @@
-Testing to see if I can use this as a guide / index to individual markdown files in this directory.
+Notes on decisions, discoveries, and troubleshooting grouped by topic:
 
 - [Design](Design.md)
 - [Debugging](Debugging.md)
