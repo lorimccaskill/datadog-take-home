@@ -58,10 +58,10 @@ The swapping of company logo squares as the user clicks through to see each test
 
 Anything but the AdRoll logo disappears on the testimonial background. (Below WholeFoods is shown)
 
-![screenshot of grid of customer logo square with larger testimonal square](/documentation/screenshots/customers-component-swapped.png)
+![screenshot of grid of customer logo square with larger testimonial square](/documentation/screenshots/customers-component-swapped.png)
 
 I'd improve this by either:
 - handling for two versions of a logo (one knockout -- all white -- for the clickable square; one full color, like the AdRoll logo, to be shown on the light gray testimonial background)
 - update the background and text color of the testimonial section to match the clickable square appearance
 
-When chosing my approach I'd consider any added complexity in both browser rendering as well as code maintenance.
+When choosing my approach I'd consider any added complexity in both browser rendering as well as code maintenance.

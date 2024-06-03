@@ -1,16 +1,16 @@
 # Customer section
 
-When building out the Customers component (shown below), I had the idea to make the company logos clickable and swap in a related testimonial, in part because I noticed the AdRoll tesmtimonial didn't have a corresponding logo square.
+When building out the Customers component (shown below), I had the idea to make the company logos clickable and swap in a related testimonial, in part because I noticed the AdRoll testimonial didn't have a corresponding logo square.
 
-![screenshot of grid of customer logo square with larger testimonal square](/documentation/screenshots/customers-component.png)
+![screenshot of grid of customer logo square with larger testimonial square](/documentation/screenshots/customers-component.png)
 
 I began learning about these Alpine Directives, but each had shortcomings related to my concept:
 
 1. [x-model](https://alpinejs.dev/directives/model) allows for binding data... but it only works with `<input>` elements (I would have to really manipulate the purpose and look to achieve the clickable square approach the design presented) and it didn't provide me with a way to show / hide the company that's been swapped in.
 2. [x-ref](https://alpinejs.dev/directives/ref) allows access to the DOM, but I wanted to pass in structured variable data (not simply a string) in order to update the contents of the HTML that creates the Testimonial Highlight.
-3. [x-teleport](https://alpinejs.dev/directives/teleport) felt closer to a workable option, but the biggest downside would seem to be it's reliance on leveraging full markup in the `<template>` element. As I thought through this possibility, I was heading down a road in which all of the testmimonials would exist in the DOM and be hidden. And while I could create them in Astro with components, I wanted to avoid littering the output HTML if possible.
+3. [x-teleport](https://alpinejs.dev/directives/teleport) felt closer to a workable option, but the biggest downside would seem to be it's reliance on leveraging full markup in the `<template>` element. As I thought through this possibility, I was heading down a road in which all of the testimonials would exist in the DOM and be hidden. And while I could create them in Astro with components, I wanted to avoid littering the output HTML if possible.
 
-Ultimately I went with using the global [Alpine.data()](https://alpinejs.dev/globals/alpine-data) to register and call a custom function, `handleCustomerClick()` which both updates the testimonal content and swaps the clickable company logo so the user can select any of the testimonials to view. This code excerpted below is found in [CustomerSection.astro](../src/components/CustomerSection.astro):
+Ultimately I went with using the global [Alpine.data()](https://alpinejs.dev/globals/alpine-data) to register and call a custom function, `handleCustomerClick()` which both updates the testimonial content and swaps the clickable company logo so the user can select any of the testimonials to view. This code excerpted below is found in [CustomerSection.astro](../src/components/CustomerSection.astro):
 
 ```
 document.addEventListener('alpine:init', () => {
