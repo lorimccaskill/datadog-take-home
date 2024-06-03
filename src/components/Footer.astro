@@ -41,9 +41,34 @@ const menuItemsSocial = [
         <section class="flex justify-between">
             <div class="flex flex-col justify-between">
                 <a class="p-2 sm:py-4 sm:px-6 border-2 border-datadogStone rounded font-semibold uppercase text-white lg:px-8 hover:bg-datadogStone" href="#">Free Trial</a>
+
+                <!-- footer links for phones (extra small) -->
+                <menu class="block my-4 sm:hidden">
+                    <li x-data="{ open:false }">
+                        <strong class="hover:cursor-pointer" @click="open =! open">Product</strong>
+                        <ul class="border-datadogStone mt-2 mb-4" x-show="open" @click.outside="open=false">
+                            {menuItemsProduct.map((item) => <li><a class="hover:underline" href="#">{item}</a></li>)}
+                        </ul>
+                    </li>
+                    <li x-data="{ open:false }">
+                        <strong class="hover:cursor-pointer" @click="open =! open">About</strong>
+                        <ul class="border-datadogStone mt-2 mb-4" x-show="open" @click.outside="open=false">
+                            {menuItemsAbout.map((item) => <li><a class="hover:underline" href="#">{item}</a></li>)}
+                        </ul>
+                    </li>
+                    <li x-data="{ open:false }">
+                        <strong class="hover:cursor-pointer" @click="open =! open">Social</strong>
+                        <ul class="border-datadogStone mt-2 mb-4" x-show="open" @click.outside="open=false">
+                            {menuItemsSocial.map((item) => <li><a class="hover:underline" href="#">{item}</a></li>)}
+                        </ul>
+                    </li>
+                </menu>
+
                 <p class="copywrite">&copy; Datadog 2017</p>
             </div>
-            <menu class="flex gap-8 w-2/3">
+
+            <!-- footer links for most screens (small and larger) -->
+            <menu class="hidden sm:flex gap-8 w-2/3">
                 <!-- TODO: make compoent for menu groups below; Need to solve for the uniqueness of Product group (grid classes applied to <ul> achieve desired layout) -->
                 <li class="grow">
                     <strong>Product</strong>
@@ -64,6 +89,7 @@ const menuItemsSocial = [
                     </ul>
                 </li>
             </menu>
+
         </section>
 
         <section class="flex justify-center mt-20 text-center text-white">

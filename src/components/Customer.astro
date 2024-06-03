@@ -5,14 +5,12 @@ const listStyles = "block bg-[" + color + "] text-[0px] flex items-center min-h-
 ---
 
 <li @click="handleCustomerClick" class={listStyles} id={name}>
-    <!-- anchor added for accessibilty; CSS hides text within element -->
-    <a href="javascript:;" class="block mx-auto">
-        link to display {name}'s testimonial
+        <!-- text added for accessibilty; CSS hides it on the screen -->
+        click to display {name}'s testimonial
         <!-- double wrapping <div> elements needed to center logo via flexbox and keep image size constrained -->
         <div class="flex justify-center w-full">
             <div>
                 <slot />
             </div>
         </div>
-    </a>
 </li>

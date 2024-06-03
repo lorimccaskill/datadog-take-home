@@ -23,7 +23,7 @@ const siteSections = [
 
         <!-- navigation for mobile screens -->
         <nav class="relative uppercase font-bold md:hidden" x-data="{ open:false }">
-            <a href="#" @click="open =! open">Menu</a>
+            <span class="hover:cursor-pointer" @click="open =! open">Menu</span>
             <menu 
                 class="absolute top-[36px] right-[-16px] z-10 bg-datadogPurple text-right" x-show="open" @click.outside="open=false">
                 {siteSections.map((section) => <li class="p-4 hover:bg-lightPurple hover:text-datadogPurple"><a href="#">{section}</a></li>)}
