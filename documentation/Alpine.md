@@ -1,5 +1,7 @@
 When building out the Customers component (shown below), I had the idea to make the company logos clickable and swap in a related testimonial, in part because I noticed the AdRoll tesmtimonial didn't have a corresponding logo square.
 
+![screenshot of grid of customer logo square with larger testimonal square](/documentation/screenshots/customers-component.png)
+
 I began learning about these Alpine Directives, but each had shortcomings related to my concept:
 
 1. [x-model](https://alpinejs.dev/directives/model) allows for binding data... but it only works with `<input>` elements (I would have to really manipulate the purpose and look to achieve the clickable square approach the design presented) and it didn't provide me with a way to show / hide the company that's been swapped in.
