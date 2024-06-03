@@ -32,3 +32,17 @@ The following screenshots illustrate the underlying grid for each breakpoint.
 ![screenshot of headline at extra small screen size](/documentation/screenshots/headline-XS.png)
 
 One improvement I'd make is refining the typography more. Adjustments in leading and perhaps more customized font sizes would be good refinements.
+
+## Customer section
+
+The swapping of company logo squares as the user clicks through to see each testimonial works seamlessly without layout disruptions. However, the logo treatments themselves aren't in what I'd think of as a finished state.
+
+Anything but the AdRoll logo disappears on the testimonial background. (Below WholeFoods is shown)
+
+![screenshot of grid of customer logo square with larger testimonal square](/documentation/screenshots/customers-component-swapped.png)
+
+I'd improve this by either:
+- handling for two versions of a logo (one knockout -- all white -- for the clickable square; one full color, like the AdRoll logo, to be shown on the light gray testimonial background)
+- update the background and text color of the testimonial section to match the clickable square appearance
+
+When chosing my approach I'd consider any added complexity in both browser rendering as well as code maintenance.
