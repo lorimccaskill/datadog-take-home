@@ -12,12 +12,16 @@ The following screenshots illustrate the underlying grid for each breakpoint.
 
 ### Extra-large screens (using block display)
 ![screenshot of headline at extra-large screen size](/documentation/screenshots/headline-XL.png)
+
 ### Large screens (3-column grid)
 ![screenshot of headline at large screen size](/documentation/screenshots/headline-LG.png)
+
 ### Medium screens (4-column grid)
 ![screenshot of headline at medium screen size](/documentation/screenshots/headline-MD.png)
+
 ### Small screens (4-column grid)
 ![screenshot of headline at small screen size](/documentation/screenshots/headline-SM.png)
+
 ### Extra-small screens (4-column grid)
 ![screenshot of headline at extra small screen size](/documentation/screenshots/headline-XS.png)
 
