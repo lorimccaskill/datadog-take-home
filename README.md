@@ -1,17 +1,15 @@
 # Datadog Take Home Assignment
 
-## Debugging notes
-### Using Tailwind CSS within an Astro project
-- issue one: VS code not auto-completing Tailwind class within .astro files
-- issue two: Tailwind class (bg-purple-700) applied to HTML within .astro file doesn't apply Tailwind CSS
-- research
-  - https://tailwindcss.com/docs/installation
-  - https://tailwindcss.com/docs/guides/astro
-  - https://docs.astro.build/en/guides/integrations-guide/tailwind/
-  - https://codedamn.com/news/frontend/how-to-fix-color-not-working-in-tailwind-css
-  - https://dev.to/dailydevtips1/how-to-use-tailwind-css-in-astro-1fnd (fix! file purge & JIT compiler)
+This project creates a static single-page site based on [this design](https://www.figma.com/file/vl7QxNnNIGIebkJCD1qv5T/datadog-websites-team-homepage-redesign).
 
-  ### Implementing custom colors
-  - issue: purple override, then custom purple color not working
-  - research
-    - https://community.redwoodjs.com/t/tailwind-custom-theme-not-working/3695
+The following technologies are used:
+- [Astro](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [AlpineJS](https://alpinejs.dev/)
+- [Glide.js](https://glidejs.com/)
+
+You can see the site in action on [this Netlify page](https://lorimccaskill-datadog-take-home.netlify.app/).
+
+For further details on my decision-making and troubleshooting hurdles I came across, please see more info in the [/documentation](documentation) directory of this repo.
+
+Thanks for taking a look! --Lori
