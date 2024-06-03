@@ -10,6 +10,6 @@ The following technologies are used:
 
 You can see the site in action on [this Netlify page](https://lorimccaskill-datadog-take-home.netlify.app/).
 
-For further details on my decision-making and troubleshooting hurdles I came across, please see more info in the [/documentation](documentation) directory of this repo.
+For further details on my decision-making and troubleshooting hurdles I came across, please see more info in the [documentation](documentation) directory of this repo.
 
 Thanks for taking a look! --Lori
