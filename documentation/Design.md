@@ -4,10 +4,6 @@ I love receiving specs from designers and getting their expert opinion when I'm 
 
 Here’s my thinking on some of the design decisions I made independently for this project. I also include notes on what I’d like to improve upon.
 
-## Mobile Navigation
-
-
-
 ## Headline content
 
 In this section I did my best to adapt elements on the page to changing screen sizes.
@@ -32,6 +28,25 @@ The following screenshots illustrate the underlying grid for each breakpoint.
 ![screenshot of headline at extra small screen size](/documentation/screenshots/headline-XS.png)
 
 One improvement I'd make is refining the typography more. Adjustments in leading and perhaps more customized font sizes would be good refinements.
+
+## Mobile Navigation
+
+The mobile navigation implementation is at a very basic state. It fits on small screen sizes and opens and closes with user interaction. I picked the approach to use clickable text ("Menu") in place of an icon to be especially clear in the component's use. However the hamburger icon is very familiar to users of mobile sites so it's certainly reasonable to implement, too.
+
+There's a lot more to implement, such as the menu filling the screen for easy use (as well as visual focus) and animating the opening and closing of the menu to visually slide in and out of view (from either the top or side).
+
+In further developing the mobile menu I'd looked to the below examples (as well as Datadog's site!) for inspiration:
+
+| Example (menu closed) | Example (menu opened) |
+| ----------- | ----------- |
+| Olmstead [(site)](https://www.olmstednyc.com/) | |
+| ![screenshot of Olmsted website homepage (closed menu)](/documentation/screenshots/menu-Olmsted-closed.png) | ![screenshot of Olmsted website homepage (opened menu)](/documentation/screenshots/menu-Olmsted-opened.png) |
+| Fastly [(site)](https://www.fastly.com/) | |
+| ![screenshot of Olmsted website homepage (closed menu)](/documentation/screenshots/menu-Fastly-closed.png) | ![screenshot of Olmsted website homepage (opened menu)](/documentation/screenshots/menu-Fastly-opened.png) |
+| ConEd [(site)](https://www.coned.com/en) | |
+| ![screenshot of Olmsted website homepage (closed menu)](/documentation/screenshots/menu-ConEd-closed.png) | ![screenshot of Olmsted website homepage (opened menu)](/documentation/screenshots/menu-ConEd-opened.png) |
+| Cariuma [(site)](https://www.cariuma.com/) | |
+| ![screenshot of Olmsted website homepage (closed menu)](/documentation/screenshots/menu-Cariuma-closed.png) | ![screenshot of Olmsted website homepage (opened menu)](/documentation/screenshots/menu-Cariuma-opened.png) |
 
 ## Customer section
 
