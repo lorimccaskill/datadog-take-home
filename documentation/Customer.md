@@ -8,9 +8,9 @@ I began learning about these Alpine Directives, but each had shortcomings relate
 
 1. [x-model](https://alpinejs.dev/directives/model) allows for binding data... but it only works with `<input>` elements (I would have to really manipulate the purpose and look to achieve the clickable square approach the design presented) and it didn't provide me with a way to show / hide the company that's been swapped in.
 2. [x-ref](https://alpinejs.dev/directives/ref) allows access to the DOM, but I wanted to pass in structured variable data (not simply a string) in order to update the contents of the HTML that creates the Testimonial Highlight.
-3. [x-teleport](https://alpinejs.dev/directives/teleport) felt closer to a workable option, but the biggest downside would seem to be it's reliance on leveaging full markup in the `<template>` element. As I thought through this possibility, I was heading down a road in which all of the testmimonials would exist in the DOM and be hidden. And while I could create them in Astro with components, I wanted to avoid littering the output HTML if possible.
+3. [x-teleport](https://alpinejs.dev/directives/teleport) felt closer to a workable option, but the biggest downside would seem to be it's reliance on leveraging full markup in the `<template>` element. As I thought through this possibility, I was heading down a road in which all of the testmimonials would exist in the DOM and be hidden. And while I could create them in Astro with components, I wanted to avoid littering the output HTML if possible.
 
-Ultimately I went with using the global Alpine.data() to register and call a custom function, handleCustomerClick() which both updates the testimonal content and swaps the clickable company logo so the user can select any of the testimonials to view. This code excerpted below is found in [CustomerSection.astro](../src/components/CustomerSection.astro):
+Ultimately I went with using the global [Alpine.data()](https://alpinejs.dev/globals/alpine-data) to register and call a custom function, `handleCustomerClick()` which both updates the testimonal content and swaps the clickable company logo so the user can select any of the testimonials to view. This code excerpted below is found in [CustomerSection.astro](../src/components/CustomerSection.astro):
 
 ```
 document.addEventListener('alpine:init', () => {
@@ -56,4 +56,4 @@ document.addEventListener('alpine:init', () => {
     })
 ```
 
-Side note: now that I have my working solution that does leverage `getElementById` in several parts of handleCustomerClick(), I'd like to explore if there's a way for me to refactor / reconceive of this functionality and use `x-ref` in part of the approach.
+Side note: now that I have my working solution that does leverage `getElementById` in several parts of `handleCustomerClick()`, I'd like to explore if there's a way for me to refactor / reconceive of this functionality and use `x-ref` in part of the approach. Calling each element by ID is also heavy-handed, so I'd look into refactoring that part of the function regardless of the use of `x-ref` (like calling the parent and then using it to access the child components I want to update).

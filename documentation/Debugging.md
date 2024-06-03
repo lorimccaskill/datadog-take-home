@@ -52,7 +52,7 @@ module.exports = {
 };
 ```
 
-## Implementing custom colors
+## Implementing custom colors in Tailwind CSS
 - issue: purple override, then custom purple color (`datadogPurple`) not working
 - research
   - https://community.redwoodjs.com/t/tailwind-custom-theme-not-working/3695
