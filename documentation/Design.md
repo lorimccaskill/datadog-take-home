@@ -24,7 +24,7 @@ The following screenshots illustrate the underlying grid for each breakpoint.
 ### Small screens (4-column grid)
 ![screenshot of headline at small screen size](/documentation/screenshots/headline-SM.png)
 
-### Extra-small screens (4-column grid)
+### Extra-small screens (back to block display)
 ![screenshot of headline at extra small screen size](/documentation/screenshots/headline-XS.png)
 
 One improvement I'd make is refining the typography more. Adjustments in leading and perhaps more customized font sizes would be good refinements.
@@ -32,6 +32,10 @@ One improvement I'd make is refining the typography more. Adjustments in leading
 ## Mobile Navigation
 
 The mobile navigation implementation is at a very basic state. It fits on small screen sizes and opens and closes with user interaction. I picked the approach to use clickable text ("Menu") in place of an icon to be especially clear in the component's use. However the hamburger icon is very familiar to users of mobile sites so it's certainly reasonable to implement, too.
+
+|  |  |
+| ----------- | ----------- |
+| ![screenshot of mobile navigation closed](/documentation/screenshots/mobile-nav-closed.png) | ![screenshot of mobile navigation opened](/documentation/screenshots/mobile-nav-opened.png) |
 
 There's a lot more to implement, such as the menu filling the screen for easy use (as well as visual focus) and animating the opening and closing of the menu to visually slide in and out of view (from either the top or side).
 
